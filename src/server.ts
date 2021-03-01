@@ -1,6 +1,10 @@
-import { GraphQLServer } from "graphql-yoga";
+require("dotenv").config();
+import Fastify from "fastify";
+import { ApolloServer, gql } from "apollo-server-fastify";
 
-const typeDefs = `
+const PORT = process.env.PORT;
+
+const typeDefs = gql`
   type Query {
     hello(name: String): String!
   }
@@ -12,5 +16,13 @@ const resolvers = {
   },
 };
 
-const server = new GraphQLServer({ typeDefs, resolvers });
-server.start(() => console.log("Server is running on localhost:4000"));
+const apollo = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+const app = Fastify({});
+
+app.register(apollo.createHandler());
+
+app.listen(PORT);

@@ -6,10 +6,13 @@
   "description": "Movie API with GraphQL",
   "author": "Dave",
   "scripts": {
-    "start": "nodemon -e ts,graphql -x ts-node src/server.ts"
+    "start": "nodemon  --delay 0.5 -e ts,graphql -x ts-node src/server.ts"
   },
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "apollo-server-fastify": "^2.21.0",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.12.0",
+    "graphql": "^15.5.0"
   },
   "devDependencies": {
     "ts-node": "^9.1.1",
