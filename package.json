@@ -5,7 +5,14 @@
   "license": "MIT",
   "description": "Movie API with GraphQL",
   "author": "Dave",
+  "scripts": {
+    "start": "nodemon -e ts,graphql -x ts-node src/server.ts"
+  },
   "dependencies": {
     "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
   }
 }
